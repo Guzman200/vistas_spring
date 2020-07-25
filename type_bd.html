@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- DataTables .-->
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+    <title>TYPE BD</title>
+  </head>
+  <body class="bg-dark">
+
+    <!-- TABLA TYPE BD -->
+    <div class="container-fluid pt-4">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modalAgregarTypeBD">
+                            Agregar Type BD
+                        </button>
+                        <a class="btn btn-outline-primary"
+                            href="#">Actualizar
+                        </a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped tablaTypeBD">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="categoriasBody">
+                                <tr>
+                                    <td>1</td>
+                                    <td>MySQL</td>
+                                    <td>...</td>
+                                    <td>
+                                        <button class="btn btn-info btnEdit" data-toggle="modal" data-target="#modalEditarTypeBD">EDIT</button>
+                                        <button class="btn btn-danger btnDelete" data-toggle="modal" data-target="#modalEliminarTypeBD">DELETE</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>PostgresSQL</td>
+                                    <td> ...</td>
+                                    <td>
+                                        <button class="btn btn-info btnEdit" data-toggle="modal" data-target="#modalEditarTypeBD">EDIT</button>
+                                        <button class="btn btn-danger btnDelete" data-toggle="modal" data-target="#modalEliminarTypeBD">DELETE</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /. TABLA TYPE BD -->
+
+
+    <!--=====================================
+    MODAL AGREGAR TYPE BD 
+    ======================================-->
+
+    <div id="modalAgregarTypeBD" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <form id="formAddTypeBD">
+
+                    <!--=====================================
+                        HEADER DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Alta Tipo BD</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <!--=====================================
+                        CUERPO DEL MODAL
+                    ====================================== -->
+
+                    <div class="modal-body">
+
+                        <!-- ENTRADA PARA EL TIPO DE BD -->
+                        <div class="input-group pt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" name="tipoBD"
+                                placeholder="Tipo" required>
+                        </div>
+
+                        <!-- ENTRADA PARA LA DESCRIPCION DE LA BD -->
+                        <div class="input-group pt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" name="descripcionBD"
+                                placeholder="Descripción" required>
+                        </div>
+                        
+                    </div>
+                    
+
+                    <!--=====================================
+                        PIE DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default pull-left"
+                            data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">
+                            Guardar Tipo de BD
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================
+    MODAL EDITAR TYPE BD 
+    ======================================-->
+
+    <div id="modalEditarTypeBD" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <form id="formEditTypeBD">
+
+                    <!--=====================================
+                        HEADER DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Tipo BD</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <!--=====================================
+                        CUERPO DEL MODAL
+                    ====================================== -->
+
+                    <div class="modal-body">
+
+                        <!-- ENTRADA PARA EL TIPO DE BD -->
+                        <div class="input-group pt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="tipoBDEdit" name="tipoBDEdit"
+                                placeholder="Tipo" required>
+                        </div>
+
+                        <!-- ENTRADA PARA LA DESCRIPCION DE LA BD -->
+                        <div class="input-group pt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="descripcionBDEdit" name="descripcionBDEdit"
+                                placeholder="Descripción" required>
+                        </div>
+                        
+                    </div>
+                    
+
+                    <!--=====================================
+                        PIE DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default pull-left"
+                            data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">
+                            Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--=====================================
+    MODAL ELIMNAR MODULO 
+    ======================================-->
+
+    <div id="modalEliminarTypeBD" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <form id="formDeleteTypeBD">
+
+                    <!--=====================================
+                        HEADER DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Tipo BD</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <!--=====================================
+                        CUERPO DEL MODAL
+                    ====================================== -->
+
+                    <div class="modal-body">
+
+                       <h2 class="text-center">¿Estas seguro de eliminar este Tipo de BD?</h2>
+
+                    </div>
+                    
+
+                    <!--=====================================
+                        PIE DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default pull-left"
+                            data-dismiss="modal">Cancelar</button>
+                        <button type="submit"
+                            class="btn btn-danger">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- DataTables -->
+    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="js/type_bd.js"></script>
+   
+    
+  </body>
+</html>

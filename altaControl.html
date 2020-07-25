@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- DataTables .-->
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+    <title>ALTA CONTROL</title>
+</head>
+
+<body class="bg-dark">
+
+    <!-- TABLA CONEXION -->
+    <div class="container-fluid pt-4">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modalAgregarControl">
+                            Alta Control
+                        </button>
+                        <!--
+                        <a id="actualizarPaginaCategoria" class="btn btn-outline-primary"
+                            href="#">Actualizar
+                        </a>
+                        -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped tablaControl">
+                            <thead>
+                                <tr>
+                                    <th>Nombre Modulo</th>
+                                    <th>Posición X</th>
+                                    <th>Posición Y</th>
+                                    <th>Nombre BD</th>
+                                    <th>Tipo</th>
+                                    <th>Altura</th>
+                                    <th>Anchura</th>
+                                    <th>Color 1</th>
+                                    <th>Color 2</th>
+                                    <th>Titulo</th>
+                                    <th>Descripción</th>
+                                    <th>Tipo Tarjeta</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Modulo 1</td>
+                                    <td>Pos X ramdom</td>
+                                    <td>Pos Y</td>
+                                    <td>MySQL</td>
+                                    <td>1</td>
+                                    <td>45</td>
+                                    <td>30</td>
+                                    <td>Primer Color</td>
+                                    <td>Segundo Color</td>
+                                    <td>Testing</td>
+                                    <td>Una descripcion</td>
+                                    <td>Condicionada</td>
+                                    <td>   
+                                        <button class="btn btn-sm btn-outline-info mb-1 btnEdit" data-toggle="modal" data-target="#modalEditarControl">
+                                                Editar
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger btnDelete" data-toggle="modal" data-target="#modalEliminarControl">Eliminar</button> 
+                                    </td>
+                                   
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /. TABLA CONEXION -->
+
+
+
+    <!--=====================================
+    MODAL AGREGAR CONTROL 
+    ======================================-->
+
+    <div id="modalAgregarControl" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <form id="formAddControl">
+
+                    <!--=====================================
+                        HEADER DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Alta Control</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <!--=====================================
+                        CUERPO DEL MODAL
+                    ====================================== -->
+
+                    <div class="modal-body">
+
+                        <!-- ENTRADA PARA EL TIPO DE MODULO -->
+                        <div class="input-group pt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fab fa-cuttlefish"></i>
+                                </span>
+                            </div>
+                            <select class="form-control" name="moduloControl" id="selectModulo">
+                                <option value="Seleccione un Modulo" id="default">Seleccione un modulo</option>
+
+                                <!-- OPCIONES DE MOMENTO -->
+                                <option value="">Modulo 1</option>
+                                <option value="">Modulo 2</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA POSICION X -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" name="posX"
+                                        placeholder="Posición X" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA POSICION Y -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-users-cog"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" name="posY"
+                                        placeholder="Posición Y" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL TIPO -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" name="tipo"
+                                        placeholder="Tipo" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA ALTURA -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" name="altura"
+                                        placeholder="Altura" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+                            
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA ANCHURA -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" name="anchura"
+                                        placeholder="Anchura" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL COLOR 1 -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-route"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" name="colorUno"
+                                        placeholder="Color Uno" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                       
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL COLOR 2 -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-route"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" name="colorDos"
+                                        placeholder="Color Dos" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL TITULO -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-route"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" name="titulo"
+                                        placeholder="Titulo" required>
+                                </div>
+                            </div>
+
+                        </div>
+
+                            <!-- ENTRADA PARA LA DESCRIPCION -->
+                            <div class="input-group pt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-route"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" name="descripcion"
+                                    placeholder="Descripción" required>
+                            </div>
+
+
+                            <!-- ENTRADA PARA EL TIPO DE TARJETA -->
+                            <div class="input-group pt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fab fa-cuttlefish"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" name="tipoTarjeta" id="tipoTarjeta">
+                                    <option value="Seleccione un tipo de tarjeta" id="default">Seleccione un tipo de tarjeta</option>
+
+                                    <!-- OPCIONES DE MOMENTO -->
+                                    <option value="">Condicionada</option>
+                                    <option value="">Normal</option>
+                                    
+                                </select>
+                            </div>
+
+                        
+                            <!-- ENTRADA PARA EL TIPO DE CONEXION -->
+                            <div class="input-group pt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fab fa-cuttlefish"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" name="tipoConexion" id="tipoConexion">
+                                    <option value="Seleccione un tipo de conexion" id="default">Seleccione un tipo de conexion</option>
+
+                                    <!-- OPCIONES DE MOMENTO -->
+                                    <option value="">LocalHost</option>
+                                    <option value="">Remota</option>
+                                    
+                                </select>
+                            </div>
+
+                    </div>
+                    
+
+
+
+
+                    <!--=====================================
+                        PIE DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default pull-left"
+                            data-dismiss="modal">Cancelar</button>
+                        <button id="registrarSucursal" name="registrarSucursal" type="submit"
+                            class="btn btn-primary">Guardar Control</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--=====================================
+    MODAL EDITAR CONTROL 
+    ======================================-->
+
+    <div id="modalEditarControl" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <form id="formEditControl">
+
+                    <!--=====================================
+                        HEADER DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Control</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <!--=====================================
+                        CUERPO DEL MODAL
+                    ====================================== -->
+
+                    <div class="modal-body">
+
+                        <!-- ENTRADA PARA EL TIPO DE MODULO -->
+                        <div class="input-group pt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fab fa-cuttlefish"></i>
+                                </span>
+                            </div>
+                            <select class="form-control" name="selectModuloEdit" id="selectModuloEdit">
+                                <option value="Seleccione un Modulo" id="default">Seleccione un modulo</option>
+
+                                <!-- OPCIONES DE MOMENTO -->
+                                <option value="">Modulo 1</option>
+                                <option value="">Modulo 2</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA POSICION X -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" id="posXEdit" name="posXEdit"
+                                        placeholder="Posición X" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA POSICION Y -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-users-cog"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" id="posYEdit" name="posYEdit"
+                                        placeholder="Posición Y" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL TIPO -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="tipoEdit" name="tipoEdit"
+                                        placeholder="Tipo" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA ALTURA -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" id="alturaEdit" name="alturaEdit"
+                                        placeholder="Altura" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+                            
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA LA ANCHURA -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </div>
+                                    <input type="number" class="form-control" id="anchuraEdit" name="anchuraEdit"
+                                        placeholder="Anchura" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL COLOR 1 -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-route"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="colorUnoEdit" name="colorUnoEdit"
+                                        placeholder="Color Uno" required>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                       
+                        <div class="row">
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL COLOR 2 -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-route"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="colorDosEdit" name="colorDosEdit"
+                                        placeholder="Color Dos" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <!-- ENTRADA PARA EL TITULO -->
+                                <div class="input-group pt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-route"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="tituloEdit" name="tituloEdit"
+                                        placeholder="Titulo" required>
+                                </div>
+                            </div>
+
+                        </div>
+
+                            <!-- ENTRADA PARA LA DESCRIPCION -->
+                            <div class="input-group pt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-route"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="descripcionEdit" name="descripcionEdit"
+                                    placeholder="Descripción" required>
+                            </div>
+
+
+                            <!-- ENTRADA PARA EL TIPO DE TARJETA -->
+                            <div class="input-group pt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fab fa-cuttlefish"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" name="tipoTarjetaEdit" id="tipoTarjetaEdit">
+                                    <option value="Seleccione un tipo de tarjeta" id="default">Seleccione un tipo de tarjeta</option>
+
+                                    <!-- OPCIONES DE MOMENTO -->
+                                    <option value="">Condicionada</option>
+                                    <option value="">Normal</option>
+                                    
+                                </select>
+                            </div>
+
+                        
+                            <!-- ENTRADA PARA EL TIPO DE CONEXION -->
+                            <div class="input-group pt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fab fa-cuttlefish"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" name="tipoConexionEdit" id="tipoConexionEdit">
+                                    <option value="Seleccione un tipo de conexion" id="default">Seleccione un tipo de conexion</option>
+
+                                    <!-- OPCIONES DE MOMENTO -->
+                                    <option value="">LocalHost</option>
+                                    <option value="">Remota</option>
+                                    
+                                </select>
+                            </div>
+
+                    </div>
+                    
+
+                    <!--=====================================
+                        PIE DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default pull-left"
+                            data-dismiss="modal">Cancelar</button>
+                        <button id="registrarSucursal" name="registrarSucursal" type="submit"
+                            class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--=====================================
+    MODAL ELIMNAR CONTROL 
+    ======================================-->
+
+    <div id="modalEliminarControl" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <form id="formEliminarControl">
+
+                    <!--=====================================
+                        HEADER DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Control</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <!--=====================================
+                        CUERPO DEL MODAL
+                    ====================================== -->
+
+                    <div class="modal-body">
+
+                       <h2 class="text-center">¿Estas seguro de eliminar este control?</h2>
+
+                    </div>
+                    
+
+                    <!--=====================================
+                        PIE DEL MODAL
+                    ======================================-->
+
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default pull-left"
+                            data-dismiss="modal">Cancelar</button>
+                        <button id="registrarSucursal" name="registrarSucursal" type="submit"
+                            class="btn btn-danger">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- DataTables -->
+    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="js/altaControl.js"></script>
+
+
+</body>
+
+</html>
